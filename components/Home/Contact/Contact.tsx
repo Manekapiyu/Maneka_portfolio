@@ -92,10 +92,8 @@ export default function Contact() {
             </p>
           </motion.div>
 
-          {/* ===== Clickable Info Boxes ===== */}
           <motion.div className="space-y-6 mt-5" {...fadeIn}>
 
-            {/* Mail Me Box */}
             <motion.a
               href="mailto:manekapiyumawali2099@gmail.com"
               target="_blank"

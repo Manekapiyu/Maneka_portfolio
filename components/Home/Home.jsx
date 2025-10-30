@@ -1,11 +1,11 @@
 import React from 'react'
 import Hero from "./Hero/Hero";
-import Services from "./Services/Services"
 import Project from './Projects/Project';
 import Contact from "./Contact/Contact";
 import Skills from "./Skills/Skills"
 import Footer from "./Footer/Footer"
 import About from "./About/About";
+import Certificate from './Certificate/Certification';
 
 
 const Home = () => {
@@ -13,9 +13,9 @@ const Home = () => {
     <Hero/>
     <About/>
   
-    <Services/>
-    <Project/>
     <Skills/>
+    <Project/>
+    <Certificate/>
     <Contact/>
     <Footer/>
     
