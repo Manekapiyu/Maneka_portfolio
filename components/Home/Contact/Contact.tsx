@@ -71,7 +71,7 @@ export default function Contact() {
 
   // ====== UI ======
   return (
-    <div id="contact" className="scroll-mt-20 pt-10 pb-10 text-white">
+    <div id="contact" className="scroll-mt-20 pt-16 pb-16 text-white">
       <div className="w-[90%] sm:w-[80%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
 
       
