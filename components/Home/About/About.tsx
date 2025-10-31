@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { GraduationCap, Briefcase } from "lucide-react";
 import Image from "next/image";
 
-// Animation variants
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0, transition: { duration: 0.6 } },
@@ -28,7 +27,6 @@ const About = () => {
     setColorMode((prev) => (prev === "cyan" ? "pink" : "cyan"));
   };
 
-  // Dynamic theme classes
   const themeColor = colorMode === "cyan" ? "text-cyan-400" : "text-pink-400";
   const borderColor =
     colorMode === "cyan" ? "border-cyan-400/30" : "border-pink-400/30";

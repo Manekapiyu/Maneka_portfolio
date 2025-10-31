@@ -119,7 +119,7 @@ const Skills = () => {
       {/* Second Row: Technologies & Tools */}
       <div className="border-2 border-cyan-800 rounded-3xl p-6">
         <h2 className="text-xl md:text-2xl font-semibold text-cyan-400 mb-6 text-center">
-          Technologies & Tools
+         Frameworks & Tools
         </h2>
         <div className="relative w-full overflow-x-hidden">
           <motion.div

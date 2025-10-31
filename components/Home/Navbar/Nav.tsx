@@ -12,6 +12,7 @@ type Props = {
 
 const Nav = ({ openNav }: Props) => {
   const [navBg, setNavBg] = useState(false);
+  const [activeLink, setActiveLink] = useState<string>("#home");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +21,47 @@ const Nav = ({ openNav }: Props) => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Track active section based on scroll position (for hash-section navigation)
+  useEffect(() => {
+    const sections = Array.from(
+      document.querySelectorAll<HTMLElement>(
+        "section[id], [id]"
+      )
+    );
+
+    const onScroll = () => {
+      const offset = window.innerHeight * 0.25; // consider element active when top is within 25% from top
+      let current = "#home";
+
+      for (const sec of sections) {
+        const id = sec.getAttribute("id");
+        if (!id) continue;
+        const rect = sec.getBoundingClientRect();
+        if (rect.top <= offset && rect.bottom > offset) {
+          current = `#${id}`;
+          break;
+        }
+      }
+
+      // also respect location.hash if present (e.g., on click)
+      if (location.hash) {
+        setActiveLink(location.hash);
+      } else {
+        setActiveLink(current);
+      }
+    };
+
+    // initial check
+    onScroll();
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("hashchange", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("hashchange", onScroll);
+    };
   }, []);
 
   return (
@@ -36,34 +78,46 @@ const Nav = ({ openNav }: Props) => {
           <Link
             href="/"
             className="text-xl md:text-2xl font-bold text-white hidden sm:block"
+            aria-label="Home"
           >
-            MANEKA&trade;
+            <span className="sr-only">Home</span>
           </Link>
         </div>
 
         {/* Nav Links (Desktop) */}
         <nav className="  hidden lg:flex items-center space-x-10">
-          {NavLinks.map((link) => (
-            <Link
-              key={link.id}
-              href={link.url}
-              className=" text-base font-medium text-white hover:text-cyan-300 transition-all duration-200"
-            >
-              {link.Label}
-            </Link>
-          ))}
+          {NavLinks.map((link) => {
+            const isActive = activeLink === link.url;
+            return (
+              <Link
+                key={link.id}
+                href={link.url}
+                className={`text-base font-medium transition-all duration-200 ${
+                  isActive
+                    ? "text-cyan-300 font-semibold border-b-2 border-cyan-400 pb-1"
+                    : "text-white hover:text-cyan-300"
+                }`}
+                onClick={() => setActiveLink(link.url)}
+              >
+                {link.Label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Actions */}
         <div className="flex items-center space-x-4">
           {/* Download CV */}
           <a
-            href="/cv.pdf"
+            href="/images/cv.pdf"
             download
-            className="px-6 py-3 text-sm rounded-lg bg-blue-600 hover:bg-blue-800 transition-all duration-200 text-white flex items-center space-x-2 "
+            aria-label="Download CV"
+            className="group inline-flex items-center gap-3 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-700 to-blue-800 text-white font-semibold shadow-md transform hover:-translate-y-0.5 hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-cyan-300/20 border border-white/6"
           >
-            <BiDownload className="w-5 h-5" />
-            <span>Download CV</span>
+            <span className="flex items-center justify-center w-9 h-9 bg-white/6 rounded-full transition-transform duration-300 group-hover:rotate-12">
+              <BiDownload className="w-5 h-5 text-white" />
+            </span>
+            <span className="hidden sm:inline">Download CV</span>
           </a>
 
           {/* Mobile Menu */}

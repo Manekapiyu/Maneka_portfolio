@@ -6,12 +6,7 @@ import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const staggerContainer = {
   initial: { opacity: 0 },
-  animate: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
+  animate: { opacity: 1, transition: { staggerChildren: 0.2 } },
 };
 
 const fadeInUp = {
@@ -19,34 +14,34 @@ const fadeInUp = {
   animate: { opacity: 1, y: 0 },
 };
 
-const cardHoverSmall = {
-  whileHover: { scale: 1.02 },
-  whileTap: { scale: 0.98 },
+const cardHover = {
+  whileHover: { scale: 1.03 },
+  whileTap: { scale: 0.97 },
 };
 
 const projects = [
-  {
-    title: "Mobile and PC Accessories and Repair Management System",
-    description: "Built a system, allowing customers to shop, book, and track repairs.",
-    image: "/images/p5.png",
-    technologies: ["React", "Tailwind", "MongoDB"],
-    githubLink: "https://github.com/Manekapiyu/FoodDeliveryApp.git",
-  },
-  {
-    title: "Smart Home Electricity Bill Tracker with AI Insights ",
-    description: "Manage electricity bills and receive AI- driven insights to reduce costs.",
-    image: "/images/p2.png",
+   {
+    title: "Smart Home Electricity Tracker",
+    description: "Track bills & get AI insights to reduce electricity costs.",
+    image: "/images/projects/p1.png",
     technologies: ["Next.js", "Node.js", "MongoDB"],
     githubLink: "https://github.com/DineshPriyanthaGH/voltbuddy-Smart-Home-Electricity-Bill-Tracker-with-AI-Insights.git",
-
   },
   {
-    title: "Chat Application",
-    description: "Real-time chat application with authentication and live messaging.",
-    image: "/images/p3.png",
-    technologies: ["Socket.io", "Express", "Firebase"],
-    githubLink: "https://github.com/yourusername/chatapp",
-    demoLink: "https://chatapp-demo.vercel.app",
+    title: "AI Interview Voice Agent ",
+    description: "Developed  uses voice interaction to conduct job interviews, manage candidates, and generate automated feedback.",
+    image: "/images/projects/p2.png",
+    technologies: [" Next.js", "React", "Vapi","Supabase"],
+    githubLink: "https://github.com/Manekapiyu/voice-ai-interview-platform.git",
+  },
+
+  {
+    title: "Full Stack Food Delivery App",
+    description:  "Developed a responsive interface, real-time cart updates, and a smooth checkout flow for an effortless user experience.",
+    image: "/images/projects/p3.png",
+    technologies: ["React", "Tailwind", "MongoDB" , "Node.js" ],
+    githubLink: "https://github.com/Manekapiyu/FoodDeliveryApp.git",
+    demoLink: "https://www.linkedin.com/posts/maneka-piyumawali_mernstack-reactjs-webdevelopment-activity-7316780879379353600-41Ml?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEuYEP8B_f_y8je2bMeVj_dsjLUdyXmUHQ0",
   },
 ];
 
@@ -78,74 +73,59 @@ const Project = () => {
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            className="bg-gray-800 rounded-lg shadow-md overflow-hidden backdrop-blur-md"
+            className="bg-gray-900 rounded-2xl shadow-xl overflow-hidden border border-cyan-500 flex flex-col"
             variants={fadeInUp}
-            {...cardHoverSmall}
+            {...cardHover}
           >
             {/* Project Image */}
-            <motion.div
-              className="aspect-video bg-gray-200 border-cyan-400 dark:bg-gray-100"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
+            <div className="relative w-full h-48 md:h-56 bg-blue-950">
               <Image
                 src={project.image}
                 alt={project.title}
-                className="object-cover w-full h-full"
-                width={500}
-                height={300}
+                fill
+                className="object-contain p-2 transition-transform duration-500 hover:scale-105"
               />
-            </motion.div>
+            </div>
 
-            {/* Project Info */}
-            <div className="p-6">
-              <motion.h3
-                className="text-xl font-semibold mb-2 text-cyan-500"
-                whileHover={{ x: 5 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                {project.title}
-              </motion.h3>
-              <p className="text-gray-200 mb-4">{project.description}</p>
-
-              {/* Tech Stack */}
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.technologies.map((tech, techIndex) => (
-                  <motion.span
-                    key={techIndex}
-                    className="px-3 py-1 bg-cyan-500/10 text-cyan-300 rounded-full text-sm"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
+            <div className="p-5 flex flex-col flex-1 justify-between">
+              {/* Tech Stack Badges */}
+              <div className="flex flex-wrap gap-2 mb-2 mt-3">
+                {project.technologies.map((tech, i) => (
+                  <span
+                    key={i}
+                    className="bg-cyan-500/20 text-cyan-300 text-xs px-2 py-1 rounded-full font-medium backdrop-blur-sm"
                   >
                     {tech}
-                  </motion.span>
+                  </span>
                 ))}
               </div>
 
+              {/* Title & Description */}
+              <h3 className="text-xl font-bold text-cyan-400 mb-2">{project.title}</h3>
+              <p className="text-gray-300 text-sm mb-4">{project.description}</p>
+
               {/* Links */}
-              <div className="flex gap-6">
-                <motion.a
-                  href={project.githubLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors"
-                  whileHover={{ x: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <FaGithub className="h-5 w-5" />
-                  <span>Code</span>
-                </motion.a>
-                <motion.a
-                  href={project.demoLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors"
-                  whileHover={{ x: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <FaExternalLinkAlt className="h-5 w-5" />
-                  <span>Live Demo</span>
-                </motion.a>
+              <div className="flex gap-3 mt-auto">
+                {project.githubLink && (
+                  <a
+                    href={project.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 bg-gray-800 hover:bg-cyan-500 text-gray-300 hover:text-black px-3 py-1 rounded-full text-sm transition-all duration-300"
+                  >
+                    <FaGithub /> Code
+                  </a>
+                )}
+                {project.demoLink && (
+                  <a
+                    href={project.demoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 bg-gray-800 hover:bg-cyan-500 text-gray-300 hover:text-black px-3 py-1 rounded-full text-sm transition-all duration-300"
+                  >
+                    <FaExternalLinkAlt /> Demo
+                  </a>
+                )}
               </div>
             </div>
           </motion.div>
