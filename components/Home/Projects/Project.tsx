@@ -14,35 +14,57 @@ const fadeInUp = {
   animate: { opacity: 1, y: 0 },
 };
 
+// ✨ Updated cardHover with cyan glow
 const cardHover = {
-  whileHover: { scale: 1.03 },
-  whileTap: { scale: 0.97 },
+  whileHover: {
+    scale: 1.04,
+    boxShadow: "0 0 30px rgba(6,182,212,0.7)",
+    borderColor: "rgba(6,182,212,0.8)",
+  },
+  whileTap: {
+    scale: 0.98,
+    boxShadow: "0 0 40px rgba(6,182,212,0.8)",
+    borderColor: "rgba(6,182,212,1)",
+  },
 };
 
 const projects = [
-   {
+  {
     title: "Smart Home Electricity Tracker",
     description: "Track bills & get AI insights to reduce electricity costs.",
     image: "/images/projects/p1.png",
     technologies: ["Next.js", "Node.js", "MongoDB"],
-    githubLink: "https://github.com/DineshPriyanthaGH/voltbuddy-Smart-Home-Electricity-Bill-Tracker-with-AI-Insights.git",
+    githubLink:
+      "https://github.com/DineshPriyanthaGH/voltbuddy-Smart-Home-Electricity-Bill-Tracker-with-AI-Insights.git",
   },
   {
     title: "AI Interview Voice Agent ",
-    description: "Developed  uses voice interaction to conduct job interviews, manage candidates, and generate automated feedback.",
+    description:
+      "Developed  uses voice interaction to conduct job interviews, manage candidates, and generate automated feedback.",
     image: "/images/projects/p2.png",
-    technologies: [" Next.js", "React", "Vapi","Supabase"],
-    githubLink: "https://github.com/Manekapiyu/voice-ai-interview-platform.git",
+    technologies: [" Next.js", "React", "Vapi", "Supabase"],
+    githubLink:
+      "https://github.com/Manekapiyu/voice-ai-interview-platform.git",
   },
-
   {
     title: "Full Stack Food Delivery App",
-    description:  "Developed a responsive interface, real-time cart updates, and a smooth checkout flow for an effortless user experience.",
+    description:
+      "Developed a responsive interface, real-time cart updates, and a smooth checkout flow for an effortless user experience.",
     image: "/images/projects/p3.png",
-    technologies: ["React", "Tailwind", "MongoDB" , "Node.js" ],
+    technologies: ["React", "Tailwind", "MongoDB", "Node.js"],
     githubLink: "https://github.com/Manekapiyu/FoodDeliveryApp.git",
-    demoLink: "https://www.linkedin.com/posts/maneka-piyumawali_mernstack-reactjs-webdevelopment-activity-7316780879379353600-41Ml?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEuYEP8B_f_y8je2bMeVj_dsjLUdyXmUHQ0",
+    demoLink:
+      "https://www.linkedin.com/posts/maneka-piyumawali_mernstack-reactjs-webdevelopment-activity-7316780879379353600-41Ml?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEuYEP8B_f_y8je2bMeVj_dsjLUdyXmUHQ0",
   },
+  {
+    title: "Ecommerce Website",
+    description:
+      "Developed a responsive animated ReactJS landing page with dark/light mode, popup modal, and modern UI.",
+    image: "/images/projects/p4.png",
+    technologies: ["React", "Tailwind"],
+    githubLink: "https://github.com/Manekapiyu/ecommerce-website.git",
+  },
+ 
 ];
 
 const Project = () => {
@@ -73,23 +95,27 @@ const Project = () => {
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            className="bg-gray-900 rounded-2xl shadow-xl overflow-hidden border border-cyan-500 flex flex-col"
+            className="bg-gray-900 rounded-2xl shadow-xl overflow-hidden border border-cyan-500 flex flex-col transition-all duration-300"
             variants={fadeInUp}
-            {...cardHover}
+            {...cardHover} // ✨ adds cyan glow effect
           >
-            {/* Project Image */}
-            <div className="relative w-full h-48 md:h-56 bg-blue-950">
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                className="object-contain p-2 transition-transform duration-500 hover:scale-105"
-              />
-            </div>
+         
+  <div className="relative  w-full h-58  bg-blue-50 rounded-t-2xl shadow-xl overflow-hidden ">
+    {/* Screen Content */}
+    <Image
+      src={project.image}
+      alt={project.title}
+      fill
+      className="object-cover"
+    />
+  </div>
+
+ 
+
 
             <div className="p-5 flex flex-col flex-1 justify-between">
               {/* Tech Stack Badges */}
-              <div className="flex flex-wrap gap-2 mb-2 mt-3">
+              <div className="flex flex-wrap gap-2 mb-2 mt-2">
                 {project.technologies.map((tech, i) => (
                   <span
                     key={i}
@@ -101,8 +127,12 @@ const Project = () => {
               </div>
 
               {/* Title & Description */}
-              <h3 className="text-xl font-bold text-cyan-400 mb-2">{project.title}</h3>
-              <p className="text-gray-300 text-sm mb-4">{project.description}</p>
+              <h3 className="text-xl font-bold text-cyan-400 mb-2">
+                {project.title}
+              </h3>
+              <p className="text-gray-300 text-sm mb-4">
+                {project.description}
+              </p>
 
               {/* Links */}
               <div className="flex gap-3 mt-auto">
@@ -111,7 +141,7 @@ const Project = () => {
                     href={project.githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-gray-800 hover:bg-cyan-500 text-gray-300 hover:text-black px-3 py-1 rounded-full text-sm transition-all duration-300"
+                    className="flex items-center gap-2 bg-blue-800 hover:bg-cyan-500 text-gray-300 hover:text-black px-3 py-1 rounded-full text-sm transition-all duration-300"
                   >
                     <FaGithub /> Code
                   </a>
@@ -121,7 +151,7 @@ const Project = () => {
                     href={project.demoLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-gray-800 hover:bg-cyan-500 text-gray-300 hover:text-black px-3 py-1 rounded-full text-sm transition-all duration-300"
+                    className="flex items-center gap-2 bg-blue-800 hover:bg-cyan-500 text-gray-300 hover:text-black px-3 py-1 rounded-full text-sm transition-all duration-300"
                   >
                     <FaExternalLinkAlt /> Demo
                   </a>

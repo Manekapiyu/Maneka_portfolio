@@ -78,7 +78,7 @@ const Skills = () => {
       </motion.h1>
 
       {/* First Row: Programming Languages & Databases */}
-      <div className="border-2 border-cyan-800 rounded-3xl p-4 mb-10 bg-[#04102b] ">
+      <div className="mt-10 bg-[#04194d] pl-5 pr-5 pb-5 pt-2 rounded-2xl">
         <h2 className="text-xl md:text-2xl font-semibold text-cyan-400 mb-6 text-center">
           Programming Languages & Databases
         </h2>
@@ -104,7 +104,7 @@ const Skills = () => {
                   boxShadow: "0px 10px 30px rgba(6,182,212,0.3)",
                 }}
                 transition={{ type: "spring", stiffness: 200 }}
-                className="flex flex-col items-center justify-center bg-[#03038945] w-40 h-40 rounded-2xl shadow-md border border-cyan-300/20 hover:border-cyan-400/50 transition-all duration-300"
+                className="flex flex-col items-center justify-center bg-[#0c1b3f] not-last:w-40 h-40 rounded-2xl shadow-md border border-cyan-300/20 hover:border-cyan-400/50 transition-all duration-300"
               >
                 <div className="text-5xl mb-3">{skill.icon}</div>
                 <p className="text-sm font-medium text-gray-300 text-center">
@@ -117,7 +117,7 @@ const Skills = () => {
       </div>
 
       {/* Second Row: Technologies & Tools */}
-      <div className="border-2 border-cyan-800 rounded-3xl p-6">
+      <div className="mt-10 bg-[#04194d] pl-5 pr-5 pb-5 pt-2  rounded-2xl">
         <h2 className="text-xl md:text-2xl font-semibold text-cyan-400 mb-6 text-center">
          Frameworks & Tools
         </h2>

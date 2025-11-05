@@ -106,7 +106,7 @@ export default function Contact() {
               <div>
                 <h3 className="text-lg font-semibold text-white">Mail Me</h3>
                 <p className="text-sm text-gray-300">
-                  manekapiyumawali2099@gmail.com
+                  manekapiyumawali299@gmail.com
                 </p>
               </div>
             </motion.a>
@@ -145,7 +145,7 @@ export default function Contact() {
         </motion.div>
 
         <motion.div
-          className="bg-[#0c0c29] dark:bg-dark/50 p-6 rounded-lg shadow-md"
+          className="bg-[#0c0c29] dark:bg-dark/50 p-6 rounded-lg shadow-md mt-8"
           {...slideInRight}
           viewport={{ once: true, amount: 0.3 }}
         >
@@ -218,15 +218,15 @@ export default function Contact() {
             </motion.div>
 
             {/* Submit Button */}
-            <motion.button
-              type="submit"
-              disabled={status === "loading"}
-              className="w-full bg-blue-900 py-2 rounded-md hover:bg-blue-700 transition-all duration-300"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              {status === "loading" ? "Sending..." : "Send Message"}
-            </motion.button>
+              <motion.button
+                type="submit"
+                disabled={status === "loading"}
+                className="w-full inline-flex items-center justify-center gap-3 px-4 py-2 rounded-full bg-gradient-to-r from-[#06A6A3] to-[#0B3B92] text-white font-semibold shadow-md hover:opacity-95 transition-all duration-300"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                {status === "loading" ? "Sending..." : "Send Message"}
+              </motion.button>
 
             {/* Status Messages */}
             {status === "success" && (

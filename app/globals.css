@@ -1,4 +1,30 @@
 @import "tailwindcss";
 
 
+/* Custom dark scrollbar */
+::-webkit-scrollbar {
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0f1f; /* dark background */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #01386f; /* cyan-blue tone */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #02425d; /* lighter cyan when hovered */
+}
+
+/* For Firefox */
+* {
+  scrollbar-color: #024d97 #0a0f1f;
+  scrollbar-width: thin;
+}
+
+
+
 
