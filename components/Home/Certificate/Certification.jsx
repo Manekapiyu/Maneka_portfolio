@@ -1,15 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const certifications = [
-  {
-    name: "Postman API Fundamentals",
-    issuer: "Postman Academy",
-    description: "Gained hands-on skills in API design, testing, and automation.",
-    image: "/images/certificates/postman.jpg",
-    link: "https://www.linkedin.com/posts/maneka-piyumawali_postman-api-apitesting-activity-7383140177587671040--Kzz",
+   {
+    name: "Python for Beginners",
+    issuer: "University of Moratuwa",
+    description: "Learned Python basics, programming logic, and problem-solving skills.",
+    image: "/images/certificates/python.jpeg",
+    link: "https://www.linkedin.com/posts/maneka-piyumawali_python-programming-certification-activity-7293228770839150592-C9EG",
   },
   {
     name: "Diploam in Information Technology",
@@ -18,13 +19,14 @@ const certifications = [
     image: "/images/certificates/DiplomaIT.jpg",
     link: "https://drive.google.com/file/d/13SjR1eH5KDDdvr_qIPsIDvOPkL0agLKP/view",
   },
-  {
-    name: "Python for Beginners",
-    issuer: "University of Moratuwa",
-    description: "Learned Python basics, programming logic, and problem-solving skills.",
-    image: "/images/certificates/python.jpeg",
-    link: "https://www.linkedin.com/posts/maneka-piyumawali_python-programming-certification-activity-7293228770839150592-C9EG?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEuYEP8B_f_y8je2bMeVj_dsjLUdyXmUHQ0",
+    {
+    name: "Postman API Fundamentals",
+    issuer: "Postman Academy",
+    description: "Gained hands-on skills in API design, testing, and automation.",
+    image: "/images/certificates/postman.jpg",
+    link: "https://www.linkedin.com/posts/maneka-piyumawali_postman-api-apitesting-activity-7383140177587671040--Kzz",
   },
+ 
   {
     name: "Machine Learning",
     issuer: "Cambridge International Qualifications (UK)",
@@ -47,117 +49,234 @@ const certifications = [
     link: "https://drive.google.com/file/d/1LfG7AjF4OpIsIKofKR39iaG-fCRmn227/view",
   },
   {
-    name: "AWS Cloud Foundations",
-    issuer: "Amazon Web Services (AWS)",
+    name: "AWS ",
+    issuer: "Simplilearn",
     description: "Studied AWS core services and cloud infrastructure basics.",
-    image: "/images/certificates/aws.png",
+    image: "/images/certificates/aws.jpeg",
     link: "https://www.linkedin.com/posts/maneka-piyumawali_aws-amazonwebservices-cloudcomputing-activity-7362847122251030528-bp0i",
+  },
+  {
+    name: "Web Design for Begineers",
+    issuer: "University of Moratuwa",
+    description: "Learned basic html,css,javascript and designing tools and frameworks.",
+    image: "/images/certificates/webdesign.jpg",
+    link: "https://drive.google.com/file/d/1Jg61zvoHix6wR5sjvYzPa-PlB6Q4HDHQ/view?usp=sharing",
+  },
+  {
+    name: "OOP in Java ",
+    issuer: "Simplilearn",
+    description: "Learned basic knowledge about OOP concepts and coding knowledge.",
+    image: "/images/certificates/oop.png",
+    link: "https://drive.google.com/file/d/1JKZ6eWBPkZxH22iLBRd2tugGL_gi-rTB/view?usp=sharing",
+  },
+  {
+    name: "Crash Course: AWS Basics ",
+    issuer: "KodeKloud",
+    description: "Gained practical knowledge of core AWS services, cloud architecture, and deployment fundamentals.",
+    image: "/images/certificates/aws.png",
+    link: "https://drive.google.com/file/d/1-EOOLDuQzREPm26aDnh0iWNzNvXUuQ5Z/view?usp=sharing",
   },
 ];
 
 const Certification = () => {
-  const [startIndex, setStartIndex] = useState(0);
-  const visibleCount = 3;
+  const [activeIndex, setActiveIndex] = useState(0);
+  const thumbsRef = useRef(null);
+  const hasInteracted = useRef(false);
 
   const prev = () =>
-    setStartIndex((prev) =>
-      prev === 0 ? certifications.length - visibleCount : prev - 1
-    );
-
+    setActiveIndex((i) => (i === 0 ? certifications.length - 1 : i - 1));
   const next = () =>
-    setStartIndex((prev) =>
-      prev + visibleCount >= certifications.length ? 0 : prev + 1
-    );
+    setActiveIndex((i) => (i === certifications.length - 1 ? 0 : i + 1));
 
-  const activeDot =
-    (startIndex + Math.floor(visibleCount / 2)) % certifications.length;
+  useEffect(() => {
+    const container = thumbsRef.current;
+    if (!container) return;
+
+    // Only run smooth scroll after first click interaction (to prevent layout jump)
+    if (!hasInteracted.current) {
+      hasInteracted.current = true;
+      return;
+    }
+
+    const child = container.children[activeIndex];
+    if (child && typeof child.scrollIntoView === "function") {
+      // Delay slightly so layout is stable
+      setTimeout(() => {
+        child.scrollIntoView({
+          behavior: "smooth",
+          inline: "center",
+          block: "nearest",
+        });
+      }, 150);
+    }
+  }, [activeIndex]);
+
+  const active = certifications[activeIndex];
 
   return (
-    <div id="certificates" className="scroll-mt-24 pl-16 pr-16 pt-16 pb-16 ">
-      <h2 className="text-3xl md:text-4xl font-bold text-cyan-400 text-center mb-4">
-       Certifications
-      </h2>
-      <p className="text-center text-gray-300 mb-12">
-      RAcknowledgments of my technical skills, knowledge application, and dedication to learning..
-      </p>
+    <motion.section
+      id="certificates"
+      className="scroll-mt-24 px-6 md:px-16 py-12"
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
+      {/* Heading */}
+      <motion.h2
+        className="text-3xl md:text-4xl font-bold text-cyan-400 text-center mb-3"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+      >
+        Certifications
+      </motion.h2>
 
-      <div className="flex items-center justify-center relative gap-4">
-        {/* Left Arrow */}
-        <button
-          onClick={prev}
-          className="bg-cyan-400 text-black p-2 rounded-full hover:bg-cyan-500 transition"
+      <motion.p
+        className="text-center text-gray-300 mb-8 max-w-2xl mx-auto"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.4, duration: 0.8 }}
+      >
+        Acknowledgments of my technical skills, knowledge application, and
+        dedication to learning.
+      </motion.p>
+
+      {/* Main Preview + Details */}
+      <div className="max-w-[1100px] mx-auto">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center bg-[#04102b] border border-white/6 rounded-3xl p-3 md:p-4"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
         >
-          &#8592;
-        </button>
+          {/* Certificate Preview */}
+          <div className="relative flex items-center justify-center">
+            {/* 🧩 FIXED HEIGHT TO PREVENT SHIFT */}
+            <div className="relative w-full md:w-[520px] h-64 md:h-[420px] rounded-2xl bg-[#0b0d1a] shadow-2xl overflow-hidden border border-white/6">
+              <Image
+                src={active.image}
+                alt={active.name}
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 90vw, 520px"
+                priority
+              />
+            </div>
 
-        {/* Certificates Carousel */}
-        <div className="flex gap-6 flex-wrap justify-center">
-          {certifications
-            .slice(startIndex, startIndex + visibleCount)
-            .map((cert, index) => (
-              <div
-                key={index}
-                className={`flex flex-col items-center bg-[#141428] w-72 h-[370px] rounded-2xl shadow-md border p-5 transition-all duration-300 ${
-                  index === 1
-                    ? "border-cyan-400/50 shadow-cyan-400/40 scale-105"
-                    : "border-cyan-400/20"
-                }`}
+            {/* Arrows */}
+            <button
+              onClick={() => {
+                hasInteracted.current = true;
+                prev();
+              }}
+              aria-label="Previous certificate"
+              className="absolute left-2 md:left-6 -translate-y-1/2 top-1/2 w-12 h-12 rounded-full bg-[#081029] border border-cyan-500/20 flex items-center justify-center text-cyan-300 shadow-lg hover:scale-105 transition"
+            >
+              <span className="text-2xl">‹</span>
+            </button>
+
+            <button
+              onClick={() => {
+                hasInteracted.current = true;
+                next();
+              }}
+              aria-label="Next certificate"
+              className="absolute right-2 md:right-6 -translate-y-1/2 top-1/2 w-12 h-12 rounded-full bg-[#081029] border border-cyan-500/20 flex items-center justify-center text-cyan-300 shadow-lg hover:scale-105 transition"
+            >
+              <span className="text-2xl">›</span>
+            </button>
+          </div>
+
+          {/* Certificate Details */}
+          <motion.div
+            className="px-2 md:px-6 py-6 rounded-2xl shadow-inner h-full flex flex-col justify-center"
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+          >
+            <h3 className="text-2xl md:text-3xl font-bold text-purple-300 mb-2">
+              {active.name}
+            </h3>
+            <p className="text-sm text-cyan-300 font-semibold mb-4">
+              {active.issuer}
+            </p>
+            <p className="text-gray-300 mb-6 leading-relaxed">
+              {active.description}
+            </p>
+            <div>
+              <a
+                href={active.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-gradient-to-r from-[#06A6A3] to-[#0B3B92] text-white px-4 py-2 rounded-full shadow-lg"
               >
-                {/* Image */}
-                <div className="relative w-full h-40 mb-3">
+                <svg
+                  className="w-4 h-4 text-white"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <path
+                    d="M12 5v14"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M5 12h14"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                View Certificate
+              </a>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Thumbnails */}
+        <motion.div
+          className="mt-8"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 0.8 }}
+        >
+          <div
+            ref={thumbsRef}
+            className="flex items-center gap-3 overflow-x-auto no-scrollbar py-2 px-2 md:px-6"
+          >
+            {certifications.map((c, i) => (
+              <motion.button
+                key={i}
+                onClick={() => {
+                  hasInteracted.current = true;
+                  setActiveIndex(i);
+                }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className={`flex-shrink-0 w-20 h-14 md:w-28 md:h-20 rounded-md overflow-hidden border ${
+                  i === activeIndex
+                    ? "ring-2 ring-cyan-900 scale-105"
+                    : "border-white/6"
+                } transition-all bg-[#0b0d1a]`}
+                aria-label={`Show ${c.name}`}
+              >
+                <div className="relative w-full h-full">
                   <Image
-                    src={cert.image}
-                    alt={cert.name}
+                    src={c.image}
+                    alt={c.name}
                     fill
-                    sizes="300px"
-                    className="object-contain rounded-lg"
-                    priority
+                    className="object-contain"
+                    sizes="80px"
                   />
                 </div>
-
-                {/* Details */}
-                <div className="text-center flex-1">
-                  <h3 className="text-lg font-semibold  text-gray-100 mb-1">{cert.name}</h3>
-                  <p className="text-sm text-gray-400 mb-2">{cert.issuer}</p>
-                  <p className="text-xs text-gray-300">{cert.description}</p>
-                </div>
-
-                {/* Type + Link */}
-                <p className="text-xs text-cyan-300 mb-2">{cert.type}</p>
-                <a
-                  href={cert.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-cyan-400 text-black font-semibold px-3 py-1 rounded-lg hover:bg-cyan-500 transition-colors"
-                >
-                  View Certificate
-                </a>
-              </div>
+              </motion.button>
             ))}
-        </div>
-
-        {/* Right Arrow */}
-        <button
-          onClick={next}
-          aria-label="Next"
-          className="bg-cyan-400 text-black p-2 rounded-full hover:bg-cyan-500 transition-colors"
-        >
-          &#8594;
-        </button>
+          </div>
+        </motion.div>
       </div>
-
-      {/* Dots */}
-      <div className="flex justify-center mt-6 gap-2">
-        {certifications.map((_, index) => (
-          <div
-            key={index}
-            className={`w-3 h-3 rounded-full transition-all ${
-              index === activeDot ? "bg-cyan-400" : "bg-gray-600"
-            }`}
-          ></div>
-        ))}
-      </div>
-    </div>
+    </motion.section>
   );
 };
 

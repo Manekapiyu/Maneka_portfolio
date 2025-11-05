@@ -12,14 +12,14 @@ const Hero = () => {
   const socialLinks = [
     {
       Icon: FaLinkedinIn,
-      link: "https://www.linkedin.com/in/yourusername",
+      link: "https://www.linkedin.com/in/maneka piyumawali",
       label: "LinkedIn",
       color: "#0A66C2",
       activeBg: "#0A66C2",
     },
     {
       Icon: FaGithub,
-      link: "https://github.com/yourusername",
+      link: "https://github.com/Manekapiyu",
       label: "GitHub",
       color: "#ffffff",
       activeBg: "#333333",
@@ -154,7 +154,7 @@ const Hero = () => {
               }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 bg-blue-600 hover:bg-blue-900 text-white font-semibold 
+              className="px-6 py-3 bg-blue-700 hover:bg-blue-900 text-white font-semibold 
                          rounded-full shadow-md transition duration-300 flex items-center gap-2"
             >
               <span>Hire Me</span>
@@ -189,7 +189,7 @@ const Hero = () => {
         >
           <div className="w-[160px] h-[160px] rounded-full overflow-hidden shadow-lg border-8 border-[#0c0c48aa] sm:w-[200px] sm:h-[200px] md:w-[380px] md:h-[380px]">
             <Image
-              src="/images/2.jpg"
+              src="/images/profile.jpg"
               alt="Hero Image"
               width={350}
               height={350}

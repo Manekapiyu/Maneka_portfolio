@@ -34,14 +34,14 @@ const About = () => {
     colorMode === "cyan" ? "shadow-cyan-400/30" : "shadow-pink-400/30";
 
   return (
-    <div id="about" className="scroll-mt-24 pl-16 pr-16 pt-16 pb-16 ">
+    <div id="about" className="scroll-mt-24  pt-16 pb-16 ">
       <motion.div
         {...fadeInDown}
         viewport={{ once: true, amount: 0.3 }}
         className="text-center mb-14"
       >
         <h1 className="text-center text-2xl md:text-4xl xl:text-5xl font-bold text-white mb-2">
-          About <span className="text-cyan-400 font-semibold">Me</span>
+          About<span className="text-cyan-400 font-semibold">Me</span>
         </h1>
 
         <div
@@ -63,7 +63,7 @@ const About = () => {
               className={`relative w-56 h-56 rounded-full overflow-hidden border-4 ${borderColor} ${glowColor} hover:scale-105 transition-transform duration-500`}
             >
               <Image
-                src="/images/2.jpg"
+                src="/images/profile.jpg"
                 alt="Profile"
                 width={300}
                 height={300}
@@ -76,18 +76,15 @@ const About = () => {
             {/* Description */}
             <motion.h3
               {...fadeInUp}
-              className={`text-2xl font-semibold ${themeColor} mt-6 mb-3`}
+              className={`text-3xl font-semibold ${themeColor} mt-6 mb-3`}
             >
-              Hi, I’m Maneka
+             "Hi, I'm Maneka — an Aspiring Full-Stack Developer"
             </motion.h3>
 
-            <motion.p className="text-sm text-gray-300 leading-relaxed mb-8 text-justify">
+            <motion.p className="text-[16px] text-gray-300 leading-relaxed mb-8  mt-6 text-justify">
               I’m a passionate developer who loves turning creative ideas into
               meaningful digital experiences. I enjoy combining{" "}
-              <span className="text-cyan-300 font-medium">
-                design, logic, and clean code
-              </span>
-               to craft web applications that are both{" "}
+                design, logic, and clean code to craft web applications that are both{" "}
               <span className="font-medium text-white">
                 modern, efficient, and user-focused
               </span>
@@ -101,54 +98,76 @@ const About = () => {
         <motion.div
           {...slideInRight}
           viewport={{ once: true, amount: 0.3 }}
-          className="space-y-8"
+          className="space-y-6"
         >
           {/* Education */}
           <motion.div
-  {...fadeInUp}
-  className={`bg-[#141428] p-6 rounded-2xl border ${borderColor} ${glowColor} hover:shadow-xl hover:scale-[1.03] transition-all duration-300`}
->
-  {/* Header */}
-  <div className="flex items-center gap-3 mb-4">
-    <GraduationCap className={`${themeColor} w-7 h-7`} />
-    <h3 className={`text-2xl font-semibold ${themeColor}`}>
-      Academic Background
-    </h3>
-  </div>
+            {...fadeInUp}
+            className={`bg-[#141428] p-6 rounded-2xl border ${borderColor} ${glowColor} hover:shadow-xl hover:scale-[1.03] transition-all duration-300`}
+          >
+            {/* Header */}
+            <div className="flex items-center gap-3 mb-4">
+              <GraduationCap className={`${themeColor} w-7 h-7`} />
+              <h3 className={`text-2xl font-semibold ${themeColor}`}>
+                Academic Background
+              </h3>
+            </div>
 
-  {/* University Info */}
-  <div className="mb-4">
-    <p className="text-gray-300 text-base font-medium">
-      BSc (Hons) Computing & Information Systems
-    </p>
-    <p className="text-gray-400 text-sm">
-      Sabaragamuwa University — <span className="italic">2023 - Present</span>
-    </p>
-  </div>
+            {/* University Info with external link */}
+            <div className="mb-4">
+              <p className="text-gray-300 text-base font-medium">
+                BSc (Hons) Computing & Information Systems
+              </p>
+              <p className="text-gray-400 text-sm">
+                <a
+                  href="https://www.sab.ac.lk/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-cyan-300 hover:underline"
+                >
+                  Sabaragamuwa University
+                </a>
+                {' '}— <span className="italic">2023 - Present</span>
+              </p>
+            </div>
 
-  {/* Divider Line */}
-  <div
-    className={`w-full h-[1px] bg-gradient-to-r from-transparent via-${colorMode}-400/40 to-transparent mb-4`}
-  ></div>
+            {/* Divider Line */}
+            <div
+              className={`w-full h-[1px] bg-gradient-to-r from-transparent via-${colorMode}-400/40 to-transparent mb-4`}
+            ></div>
 
-  {/* Skills Section */}
-  <p className="text-gray-300 text-sm mb-3 font-medium">
-    Core Skills & Focus Areas:
-  </p>
+            {/* Skills Section - vertical list with progress bars */}
+            <p className="text-gray-300 text-sm mb-3 font-medium">
+              Skills :
+            </p>
 
-  <div className="flex flex-wrap gap-3">
-    {["OOP", "DSA", "Quality Assurance", "Project Management", "ADBM"].map(
-      (skill, index) => (
-        <span
-          key={index}
-          className={`px-4 py-2 text-xs  text-blue-300 rounded-full border ${borderColor} ${glowColor} bg-[#040456] hover:bg-[#223444] hover:scale-105 transition-all`}
-        >
-          {skill}
-        </span>
-      )
-    )}
-  </div>
-</motion.div>
+            <div className="space-y-3">
+              {[
+                { name: 'OOP', pct: 85 },
+                { name: 'DSA', pct: 78 },
+                { name: 'Quality Assurance', pct: 72 },
+                { name: 'Project Management', pct: 65 },
+                { name: 'ADBM', pct: 70 },
+              ].map((s, i) => (
+                <div key={i} className="">
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-sm text-gray-200 font-medium">{s.name}</span>
+                    <span className="text-xs text-gray-400">{s.pct}%</span>
+                  </div>
+
+                  <div className="w-full h-2 bg-[#0b1020] rounded-full overflow-hidden">
+                    <div
+                      className={`h-full rounded-full transition-all duration-700 ${colorMode === 'cyan' ? 'bg-cyan-400' : 'bg-pink-400'}`}
+                      style={{ width: `${s.pct}%` }}
+                      aria-valuenow={s.pct}
+                      aria-valuemin={0}
+                      aria-valuemax={100}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
 
           {/* Experience */}
           <motion.div
