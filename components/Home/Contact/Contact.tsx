@@ -39,6 +39,7 @@ export default function Contact() {
 
   const [status, setStatus] = useState<FormStatus>("idle");
 
+  // ====== Submit Handler ======
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
@@ -73,8 +74,7 @@ export default function Contact() {
   return (
     <div id="contact" className="scroll-mt-20 pt-16 pb-16 text-white">
       <div className="w-[90%] sm:w-[80%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-
-      
+        {/* ====== Left Section ====== */}
         <motion.div
           className="space-y-6"
           initial="initial"
@@ -87,18 +87,19 @@ export default function Contact() {
               Get in Touch
             </h1>
             <p className="text-gray-400 mb-6 text-base sm:text-lg mt-9">
-              <span className="text-cyan-400"> Reach out to me</span> I'm always open to discussing new projects,
-              creative ideas, or opportunities to collaborate.
+              <span className="text-cyan-400">Reach out to me</span> &nbsp;
+              I&apos;m always open to discussing new projects, creative ideas, or
+              opportunities to collaborate.
             </p>
           </motion.div>
 
           <motion.div className="space-y-6 mt-5" {...fadeIn}>
-
+            {/* Mail Me Box */}
             <motion.a
               href="mailto:manekapiyumawali2099@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 bg-[#0b1221] border border-cyan-400 hover:bg-blue-950  hover:text-black rounded-2xl p-5 cursor-pointer transition-all duration-300"
+              className="flex items-center gap-4 bg-[#0b1221] border border-cyan-400 hover:bg-blue-950 hover:text-black rounded-2xl p-5 cursor-pointer transition-all duration-300"
               {...fadeInUp}
               whileHover={{ scale: 1.05 }}
             >
@@ -137,13 +138,16 @@ export default function Contact() {
               <BiMap className="w-8 h-8 text-cyan-300" />
               <div>
                 <h3 className="text-lg font-semibold text-white">Find Me</h3>
-                <p className="text-sm text-gray-300">No:24/A, Gartland Estate ,Wegowwa Cross Road, Minuwangoda, Sri Lanka</p>
+                <p className="text-sm text-gray-300">
+                  No:24/A, Gartland Estate, Wegowwa Cross Road, Minuwangoda, Sri
+                  Lanka
+                </p>
               </div>
             </motion.a>
-
           </motion.div>
         </motion.div>
 
+        {/* ====== Right Section (Form) ====== */}
         <motion.div
           className="bg-[#0c0c29] dark:bg-dark/50 p-6 rounded-lg shadow-md mt-8"
           {...slideInRight}
@@ -170,8 +174,9 @@ export default function Contact() {
                 required
                 className="w-full px-4 py-2 rounded-md bg-gray-800 focus:ring-2 focus:ring-cyan-400 focus:border-transparent"
               />
-              </motion.div>
+            </motion.div>
 
+            {/* Email */}
             <motion.div {...fadeInUp}>
               <label htmlFor="email" className="block text-sm font-medium mb-2">
                 Email :
@@ -187,8 +192,12 @@ export default function Contact() {
               />
             </motion.div>
 
+            {/* Mobile */}
             <motion.div {...fadeInUp}>
-              <label htmlFor="mobile" className="block text-sm font-medium mb-2">
+              <label
+                htmlFor="mobile"
+                className="block text-sm font-medium mb-2"
+              >
                 Mobile No :
               </label>
               <input
@@ -202,8 +211,12 @@ export default function Contact() {
               />
             </motion.div>
 
+            {/* Message */}
             <motion.div {...fadeInUp}>
-              <label htmlFor="message" className="block text-sm font-medium mb-2">
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium mb-2"
+              >
                 Message :
               </label>
               <textarea
@@ -218,15 +231,15 @@ export default function Contact() {
             </motion.div>
 
             {/* Submit Button */}
-              <motion.button
-                type="submit"
-                disabled={status === "loading"}
-                className="w-full inline-flex items-center justify-center gap-3 px-4 py-2 rounded-full bg-gradient-to-r from-[#06A6A3] to-[#0B3B92] text-white font-semibold shadow-md hover:opacity-95 transition-all duration-300"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                {status === "loading" ? "Sending..." : "Send Message"}
-              </motion.button>
+            <motion.button
+              type="submit"
+              disabled={status === "loading"}
+              className="w-full inline-flex items-center justify-center gap-3 px-4 py-2 rounded-full bg-gradient-to-r from-[#06A6A3] to-[#0B3B92] text-white font-semibold shadow-md hover:opacity-95 transition-all duration-300"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              {status === "loading" ? "Sending..." : "Send Message"}
+            </motion.button>
 
             {/* Status Messages */}
             {status === "success" && (

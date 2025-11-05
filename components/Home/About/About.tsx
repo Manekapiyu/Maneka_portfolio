@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { GraduationCap, Briefcase } from "lucide-react";
 import Image from "next/image";
@@ -21,20 +21,13 @@ const slideInRight = {
 };
 
 const About = () => {
-  const [colorMode, setColorMode] = useState("cyan");
-
-  const toggleColor = () => {
-    setColorMode((prev) => (prev === "cyan" ? "pink" : "cyan"));
-  };
-
-  const themeColor = colorMode === "cyan" ? "text-cyan-400" : "text-pink-400";
-  const borderColor =
-    colorMode === "cyan" ? "border-cyan-400/30" : "border-pink-400/30";
-  const glowColor =
-    colorMode === "cyan" ? "shadow-cyan-400/30" : "shadow-pink-400/30";
+  // Fixed color theme
+  const themeColor = "text-cyan-400";
+  const borderColor = "border-cyan-400/30";
+  const glowColor = "shadow-cyan-400/30";
 
   return (
-    <div id="about" className="scroll-mt-24  pt-16 pb-16 ">
+    <div id="about" className="scroll-mt-24 pt-16 pb-16">
       <motion.div
         {...fadeInDown}
         viewport={{ once: true, amount: 0.3 }}
@@ -44,9 +37,7 @@ const About = () => {
           About<span className="text-cyan-400 font-semibold">Me</span>
         </h1>
 
-        <div
-          className={`w-28 h-1 mx-auto mt-3 bg-gradient-to-r from-transparent via-${colorMode}-400 to-transparent rounded-full`}
-        ></div>
+        <div className="w-28 h-1 mx-auto mt-3 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full"></div>
         <p className="text-gray-400 text-sm md:text-base">
           Calm creativity meets thoughtful technology.
         </p>
@@ -78,13 +69,13 @@ const About = () => {
               {...fadeInUp}
               className={`text-3xl font-semibold ${themeColor} mt-6 mb-3`}
             >
-             "Hi, I'm Maneka — an Aspiring Full-Stack Developer"
+              &quot;Hi, I&apos;m Maneka — an Aspiring Full-Stack Developer&quot;
             </motion.h3>
 
-            <motion.p className="text-[16px] text-gray-300 leading-relaxed mb-8  mt-6 text-justify">
+            <motion.p className="text-[16px] text-gray-300 leading-relaxed mb-8 mt-6 text-justify">
               I’m a passionate developer who loves turning creative ideas into
-              meaningful digital experiences. I enjoy combining{" "}
-                design, logic, and clean code to craft web applications that are both{" "}
+              meaningful digital experiences. I enjoy combining design, logic,
+              and clean code to craft web applications that are both{" "}
               <span className="font-medium text-white">
                 modern, efficient, and user-focused
               </span>
@@ -105,7 +96,6 @@ const About = () => {
             {...fadeInUp}
             className={`bg-[#141428] p-6 rounded-2xl border ${borderColor} ${glowColor} hover:shadow-xl hover:scale-[1.03] transition-all duration-300`}
           >
-            {/* Header */}
             <div className="flex items-center gap-3 mb-4">
               <GraduationCap className={`${themeColor} w-7 h-7`} />
               <h3 className={`text-2xl font-semibold ${themeColor}`}>
@@ -113,10 +103,9 @@ const About = () => {
               </h3>
             </div>
 
-            {/* University Info with external link */}
             <div className="mb-4">
               <p className="text-gray-300 text-base font-medium">
-                BSc (Hons) Computing & Information Systems
+                BSc (Hons) Computing &amp; Information Systems
               </p>
               <p className="text-gray-400 text-sm">
                 <a
@@ -126,42 +115,35 @@ const About = () => {
                   className="text-cyan-300 hover:underline"
                 >
                   Sabaragamuwa University
-                </a>
-                {' '}— <span className="italic">2023 - Present</span>
+                </a>{" "}
+                — <span className="italic">2023 - Present</span>
               </p>
             </div>
 
-            {/* Divider Line */}
-            <div
-              className={`w-full h-[1px] bg-gradient-to-r from-transparent via-${colorMode}-400/40 to-transparent mb-4`}
-            ></div>
+            <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent mb-4"></div>
 
-            {/* Skills Section - vertical list with progress bars */}
-            <p className="text-gray-300 text-sm mb-3 font-medium">
-              Skills :
-            </p>
+            <p className="text-gray-300 text-sm mb-3 font-medium">Skills:</p>
 
             <div className="space-y-3">
-              {[
-                { name: 'OOP', pct: 85 },
-                { name: 'DSA', pct: 78 },
-                { name: 'Quality Assurance', pct: 72 },
-                { name: 'Project Management', pct: 65 },
-                { name: 'ADBM', pct: 70 },
+              {[ 
+                { name: "OOP", pct: 85 },
+                { name: "DSA", pct: 78 },
+                { name: "Quality Assurance", pct: 72 },
+                { name: "Project Management", pct: 65 },
+                { name: "ADBM", pct: 70 },
               ].map((s, i) => (
-                <div key={i} className="">
+                <div key={i}>
                   <div className="flex justify-between items-center mb-1">
-                    <span className="text-sm text-gray-200 font-medium">{s.name}</span>
+                    <span className="text-sm text-gray-200 font-medium">
+                      {s.name}
+                    </span>
                     <span className="text-xs text-gray-400">{s.pct}%</span>
                   </div>
 
                   <div className="w-full h-2 bg-[#0b1020] rounded-full overflow-hidden">
                     <div
-                      className={`h-full rounded-full transition-all duration-700 ${colorMode === 'cyan' ? 'bg-cyan-400' : 'bg-pink-400'}`}
+                      className="h-full bg-cyan-400 rounded-full transition-all duration-700"
                       style={{ width: `${s.pct}%` }}
-                      aria-valuenow={s.pct}
-                      aria-valuemin={0}
-                      aria-valuemax={100}
                     />
                   </div>
                 </div>
@@ -177,19 +159,19 @@ const About = () => {
             <div className="flex items-center gap-3 mb-3">
               <Briefcase className={`${themeColor} w-6 h-6`} />
               <h3 className={`text-2xl font-semibold ${themeColor}`}>
-               Work Experience
+                Work Experience
               </h3>
             </div>
             <p className="text-sm text-gray-400">
-              <span className="font-medium text-white">
-                Banking Trainee
-              </span>
+              <span className="font-medium text-white">Banking Trainee</span>
             </p>
             <p className="text-gray-400 text-sm mb-3">
-              Regional Development Bank – Minuwangoda Branch <span className="italic">2022 - 2023</span>
-    </p>
+              Regional Development Bank – Minuwangoda Branch{" "}
+              <span className="italic">2022 - 2023</span>
+            </p>
             <p className="text-gray-400 text-sm">
-             Developed teamwork, adaptability, communication, and data management skills while assisting with banking processes.
+              Developed teamwork, adaptability, communication, and data
+              management skills while assisting with banking processes.
             </p>
           </motion.div>
         </motion.div>
