@@ -3,6 +3,7 @@ import Link from "next/link";
 import { NavLinks } from "../../../constant/constant";
 import { CgClose } from "react-icons/cg";
 import { FaFolderOpen } from "react-icons/fa";
+import Image from "next/image";
 
 type Props = {
   showNav: boolean;
@@ -37,9 +38,11 @@ const MobileNav = ({ closeNav, showNav }: Props) => {
         {/* Profile Section */}
         <div className="flex flex-col items-center mt-5 mb-8 text-center">
           <div className="w-20 h-20 rounded-full border-2 border-cyan-400 overflow-hidden shadow-lg">
-            <img
-              src="/images/profile2.jpg" 
+            <Image
+              src="/images/profile2.jpg"
               alt="Profile"
+              width={80}
+              height={80}
               className="w-full h-full object-cover"
             />
           </div>
@@ -48,7 +51,7 @@ const MobileNav = ({ closeNav, showNav }: Props) => {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-cyan-500/30 mb-"></div>
+        <div className="border-t border-cyan-500/30 mb-4"></div>
 
         {/* Nav Links */}
         <div className="flex flex-col space-y-5">
@@ -61,7 +64,6 @@ const MobileNav = ({ closeNav, showNav }: Props) => {
             </Link>
           ))}
         </div>
-
       </div>
     </div>
   );

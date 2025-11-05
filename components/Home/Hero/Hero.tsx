@@ -15,28 +15,24 @@ const Hero = () => {
       link: "https://www.linkedin.com/in/maneka piyumawali",
       label: "LinkedIn",
       color: "#0A66C2",
-      activeBg: "#0A66C2",
     },
     {
       Icon: FaGithub,
       link: "https://github.com/Manekapiyu",
       label: "GitHub",
       color: "#ffffff",
-      activeBg: "#333333",
     },
     {
       Icon: FaKaggle,
       link: "https://www.kaggle.com/manekapiyumawali",
       label: "Kaggle",
       color: "#20BEFF",
-      activeBg: "#20BEFF",
     },
     {
       Icon: "/images/medium1.png",
       link: "https://medium.com/@manekapiyumawali2099",
       label: "Medium",
       color: "#ffffff",
-      activeBg: "#000000",
     },
   ];
 
@@ -114,7 +110,7 @@ const Hero = () => {
 
           {/*Social Media Links*/}
           <div className="flex justify-center md:justify-start gap-4 mt-8 border-cyan-400/20">
-            {socialLinks.map(({ Icon, link, label, color, activeBg }, i) => (
+            {socialLinks.map(({ Icon, link, label, color }, i) => (
               <motion.a
                 key={i}
                 href={link}
