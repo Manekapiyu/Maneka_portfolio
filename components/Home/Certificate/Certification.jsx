@@ -129,6 +129,7 @@ const Certification = () => {
         transition={{ delay: 0.2, duration: 0.6 }}
       >
         Certifications
+        <div className="w-28 h-1 mx-auto mt-3 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full"></div>
       </motion.h2>
 
       <motion.p

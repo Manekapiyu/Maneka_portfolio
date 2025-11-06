@@ -72,6 +72,7 @@ const Skills = () => {
         className="text-center text-3xl md:text-4xl xl:text-5xl font-bold mb-12"
       >
         My <span className="text-cyan-400 ">Skills </span>
+        <div className="w-28 h-1 mx-auto mt-3 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full"></div>
         <p className="text-gray-400 text-sm md:text-base mt-2 font-light">
           Passionate About AI, Web Development, and Innovative Tech Solutions
         </p>
