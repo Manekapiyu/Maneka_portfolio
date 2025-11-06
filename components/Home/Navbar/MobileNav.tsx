@@ -37,7 +37,7 @@ const MobileNav = ({ closeNav, showNav }: Props) => {
 
         {/* Profile Section */}
         <div className="flex flex-col items-center mt-5 mb-8 text-center">
-          <div className="w-20 h-20 rounded-full border-2 border-cyan-400 overflow-hidden shadow-lg">
+          <div className="w-20 h-20 rounded-full border-2 border-cyan-500 overflow-hidden shadow-lg">
             <Image
               src="/images/profile2.jpg"
               alt="Profile"
