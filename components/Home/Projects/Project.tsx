@@ -70,12 +70,13 @@ const projects = [
 const Project = () => {
   return (
     <div id="projects" className="scroll-mt-24 pl-20 pr-20 pt-16 pb-16 ">
-      <h1 className="text-center text-2xl md:text-4xl xl:text-5xl font-bold text-white mb-12">
+      <h1 className="text-center text-2xl md:text-4xl xl:text-5xl font-bold text-white ">
         Featured <span className="text-cyan-400 font-semibold">Projects</span>
+        <div className="w-28 h-1 mx-auto mt-3 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full"></div>
       </h1>
 
       <motion.p
-        className="text-lg text-gray-200 mb-16 text-center max-w-2xl mx-auto"
+        className="text-lg text-gray-200 mb-10 mt-2 text-center max-w-2xl mx-auto"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}

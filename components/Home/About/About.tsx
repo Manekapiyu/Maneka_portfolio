@@ -34,10 +34,10 @@ const About = () => {
         className="text-center mb-14"
       >
         <h1 className="text-center text-2xl md:text-4xl xl:text-5xl font-bold text-white mb-2">
-          About<span className="text-cyan-400 font-semibold">Me</span>
+          About<span className="text-cyan-400 font-semibold"> Me</span>
         </h1>
 
-        <div className="w-28 h-1 mx-auto mt-3 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full"></div>
+        <div className="w-28 h-1 mx-auto mt-2  mb-2 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full"></div>
         <p className="text-gray-400 text-sm md:text-base">
           Calm creativity meets thoughtful technology.
         </p>

@@ -34,3 +34,52 @@ This site is built using **Next.js**, **TypeScript**, **Tailwind CSS**, and **Fr
 
 ## 📂 Project Structure
 
+## 📂 Project Structure
+
+portfolio/
+├── components/
+│ ├── Home/
+│ │ ├── Navbar/
+│ │ ├── Hero/
+│ │ ├── About/
+│ │ ├── Projects/
+│ │ ├── Contact/
+│ │ └── Footer/
+├── public/
+│ └── images/
+├── pages/
+│ └── index.tsx
+├── styles/
+│ └── globals.css
+└── package.json
+
+yaml
+Copy code
+
+---
+
+## ⚙️ Installation & Setup
+
+If you want to run this portfolio locally:
+
+```bash
+# Clone the repository
+git clone https://github.com/Manekapiyu/portfolio.git
+
+# Move into the project directory
+cd portfolio
+
+# Install dependencies
+npm install
+
+# Run the development server
+npm run dev
+Then open http://localhost:3000 to view it in your browser.
+
+
+🧑‍💻 Developer
+👩‍💻 Maneka Piyumawali
+Full-Stack Developer | UI/UX Enthusiast | Tech Explorer
+
+📍 Minuwangoda, Sri Lanka
+📧 manekapiyumawali299@gmail.com
