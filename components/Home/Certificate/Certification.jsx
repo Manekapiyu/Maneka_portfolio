@@ -23,7 +23,7 @@ const certifications = [
     name: "Postman API Fundamentals",
     issuer: "Postman Academy",
     description: "Gained hands-on skills in API design, testing, and automation.",
-    image: "/images/certificates/postman.jpg",
+    image: "/images/certificates/Postman.jpg",
     link: "https://www.linkedin.com/posts/maneka-piyumawali_postman-api-apitesting-activity-7383140177587671040--Kzz",
   },
  
