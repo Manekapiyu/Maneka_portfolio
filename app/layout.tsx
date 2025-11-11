@@ -4,10 +4,9 @@ import "./globals.css";
 import ResponsiveNav from "@/components/Home/Navbar/ResponsiveNav";
 
 const font = Inter({
-  weight: ['100','200','300','400','500','600','700','800','900'],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
 });
-
 
 export const metadata: Metadata = {
   title: "Maneka Portfolio",
@@ -21,11 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${font.className} antialiased bg-[#0d0d1f] `}>
-          <ResponsiveNav/>
-          {children}
+      <body className={`${font.className} antialiased bg-[#0d0d1f] `}>
+        <ResponsiveNav />
+        {children}
       </body>
     </html>
   );
-        }
+}

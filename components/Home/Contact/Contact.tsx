@@ -39,7 +39,6 @@ export default function Contact() {
 
   const [status, setStatus] = useState<FormStatus>("idle");
 
-  // ====== Submit Handler ======
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
@@ -60,7 +59,6 @@ export default function Contact() {
     }
   };
 
-  // ====== Input Change Handler ======
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -70,31 +68,27 @@ export default function Contact() {
     }));
   };
 
-  // ====== UI ======
   return (
     <div id="contact" className="scroll-mt-20 pt-16 pb-16 text-white">
       <div className="w-[90%] sm:w-[80%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-        {/* ====== Left Section ====== */}
         <motion.div
           className="space-y-6"
           initial="initial"
           whileInView="whileInView"
           viewport={{ once: true, amount: 0.3 }}
         >
-          {/* Heading & Intro */}
           <motion.div {...fadeInUp}>
             <h1 className="text-3xl md:text-4xl font-bold text-gray-200 mb-4 mt-4">
               Get in Touch
             </h1>
             <p className="text-gray-400 mb-6 text-base sm:text-lg mt-9">
               <span className="text-cyan-400">Reach out to me</span> &nbsp;
-              I&apos;m always open to discussing new projects, creative ideas, or
-              opportunities to collaborate.
+              I&apos;m always open to discussing new projects, creative ideas,
+              or opportunities to collaborate.
             </p>
           </motion.div>
 
           <motion.div className="space-y-6 mt-5" {...fadeIn}>
-            {/* Mail Me Box */}
             <motion.a
               href="mailto:manekapiyumawali2099@gmail.com"
               target="_blank"
@@ -112,7 +106,6 @@ export default function Contact() {
               </div>
             </motion.a>
 
-            {/* Call Me Box */}
             <motion.a
               href="tel:0767859511"
               className="flex items-center gap-4 bg-[#0b1221] border border-cyan-400 hover:bg-blue-950 hover:text-black rounded-2xl p-5 cursor-pointer transition-all duration-300"
@@ -126,7 +119,6 @@ export default function Contact() {
               </div>
             </motion.a>
 
-            {/* Find Me Box */}
             <motion.a
               href="https://www.google.com/maps/place/Minuwangoda,+Sri+Lanka"
               target="_blank"
@@ -147,7 +139,6 @@ export default function Contact() {
           </motion.div>
         </motion.div>
 
-        {/* ====== Right Section (Form) ====== */}
         <motion.div
           className="bg-[#0c0c29] dark:bg-dark/50 p-6 rounded-lg shadow-md mt-8"
           {...slideInRight}
@@ -160,7 +151,6 @@ export default function Contact() {
             whileInView="whileInView"
             viewport={{ once: true, amount: 0.3 }}
           >
-            {/* Name */}
             <motion.div {...fadeInUp}>
               <label htmlFor="name" className="block text-sm font-medium mb-2">
                 Name :
@@ -176,7 +166,6 @@ export default function Contact() {
               />
             </motion.div>
 
-            {/* Email */}
             <motion.div {...fadeInUp}>
               <label htmlFor="email" className="block text-sm font-medium mb-2">
                 Email :
@@ -192,7 +181,6 @@ export default function Contact() {
               />
             </motion.div>
 
-            {/* Mobile */}
             <motion.div {...fadeInUp}>
               <label
                 htmlFor="mobile"
@@ -211,7 +199,6 @@ export default function Contact() {
               />
             </motion.div>
 
-            {/* Message */}
             <motion.div {...fadeInUp}>
               <label
                 htmlFor="message"
@@ -230,7 +217,6 @@ export default function Contact() {
               />
             </motion.div>
 
-            {/* Submit Button */}
             <motion.button
               type="submit"
               disabled={status === "loading"}
@@ -241,7 +227,6 @@ export default function Contact() {
               {status === "loading" ? "Sending..." : "Send Message"}
             </motion.button>
 
-            {/* Status Messages */}
             {status === "success" && (
               <motion.p
                 className="text-green-500 text-center"

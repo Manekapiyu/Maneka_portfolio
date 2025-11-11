@@ -63,7 +63,7 @@ const Skills = () => {
       id="skills"
       className="scroll-mt-24 py-20 text-white overflow-hidden px-6 md:px-16"
     >
-      {/* Section Title */}
+     
       <motion.h1
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -78,7 +78,6 @@ const Skills = () => {
         </p>
       </motion.h1>
 
-      {/* First Row: Programming Languages & Databases */}
       <div className="mt-10 bg-[#04194d] pl-5 pr-5 pb-5 pt-2 rounded-2xl">
         <h2 className="text-xl md:text-2xl font-semibold text-cyan-400 mb-6 text-center">
           Programming Languages & Databases
@@ -117,7 +116,6 @@ const Skills = () => {
         </div>
       </div>
 
-      {/* Second Row: Technologies & Tools */}
       <div className="mt-10 bg-[#04194d] pl-5 pr-5 pb-5 pt-2  rounded-2xl">
         <h2 className="text-xl md:text-2xl font-semibold text-cyan-400 mb-6 text-center">
          Frameworks & Tools

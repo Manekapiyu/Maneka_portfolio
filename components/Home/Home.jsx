@@ -9,17 +9,17 @@ import Certificate from './Certificate/Certification';
 
 
 const Home = () => {
-  return  <div className='overflow-hidden'>
-    <Hero/>
-    <About/>
-  
-    <Skills/>
-    <Project/>
-    <Certificate/>
-    <Contact/>
-    <Footer/>
-    
-   
+  return <div className='overflow-hidden'>
+    <Hero />
+    <About />
+
+    <Skills />
+    <Project />
+    <Certificate />
+    <Contact />
+    <Footer />
+
+
   </div>
 }
 

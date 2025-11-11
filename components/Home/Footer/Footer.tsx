@@ -8,8 +8,6 @@ const Footer = () => {
   return (
     <footer className="bg-gradient-to-b from-[#0f142e] to-[#090d1f] border-t border-cyan-800/20 py-10">
       <div className="container max-w-7xl mx-auto px-6 text-center flex flex-col items-center space-y-6">
-        
-        {/* Copyright */}
         <p className="text-sm text-gray-200 font-black">
           ©2025{" "}
           <span className="font-semibold text-cyan-400">
@@ -18,7 +16,6 @@ const Footer = () => {
           All Rights Reserved
         </p>
 
-        {/* Social Icons */}
         <div className="flex justify-center space-x-4 mt-2">
           <Link
             href="https://github.com/manekapiyumawali"
@@ -55,7 +52,6 @@ const Footer = () => {
           </Link>
         </div>
 
-        {/* Designed by Line */}
         <p className="text-sm text-gray-500 font-light font-family-mono">
           Designed by{" "}
           <Link

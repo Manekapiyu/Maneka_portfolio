@@ -23,16 +23,13 @@ const Nav = ({ openNav }: Props) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Track active section based on scroll position (for hash-section navigation)
   useEffect(() => {
     const sections = Array.from(
-      document.querySelectorAll<HTMLElement>(
-        "section[id], [id]"
-      )
+      document.querySelectorAll<HTMLElement>("section[id], [id]")
     );
 
     const onScroll = () => {
-      const offset = window.innerHeight * 0.25; // consider element active when top is within 25% from top
+      const offset = window.innerHeight * 0.25;
       let current = "#home";
 
       for (const sec of sections) {
@@ -45,7 +42,6 @@ const Nav = ({ openNav }: Props) => {
         }
       }
 
-      // also respect location.hash if present (e.g., on click)
       if (location.hash) {
         setActiveLink(location.hash);
       } else {
@@ -53,7 +49,6 @@ const Nav = ({ openNav }: Props) => {
       }
     };
 
-    // initial check
     onScroll();
 
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -70,7 +65,6 @@ const Nav = ({ openNav }: Props) => {
       ${navBg ? "bg-[#0e1641d9] shadow-md backdrop-blur-sm" : ""}`}
     >
       <div className="flex items-center justify-between h-full w-[90%] mx-auto">
-        {/* Logo */}
         <div className="flex items-center space-x-2">
           <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
             <FaCode className="w-5 h-5 text-black" />
@@ -84,7 +78,6 @@ const Nav = ({ openNav }: Props) => {
           </Link>
         </div>
 
-        {/* Nav Links (Desktop) */}
         <nav className="  hidden lg:flex items-center space-x-10">
           {NavLinks.map((link) => {
             const isActive = activeLink === link.url;
@@ -105,9 +98,7 @@ const Nav = ({ openNav }: Props) => {
           })}
         </nav>
 
-        {/* Actions */}
         <div className="flex items-center space-x-4">
-          {/* Download CV */}
           <a
             href="/images/cv.pdf"
             download
@@ -120,7 +111,6 @@ const Nav = ({ openNav }: Props) => {
             <span className="hidden sm:inline">Download CV</span>
           </a>
 
-          {/* Mobile Menu */}
           <HiBars3BottomRight
             onClick={openNav}
             className="lg:hidden w-8 h-8 cursor-pointer text-white"
