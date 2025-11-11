@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const certifications = [
-   {
+  {
     name: "Python for Beginners",
     issuer: "University of Moratuwa",
     description: "Learned Python basics, programming logic, and problem-solving skills.",
@@ -19,14 +19,14 @@ const certifications = [
     image: "/images/certificates/DiplomaIT.jpg",
     link: "https://drive.google.com/file/d/13SjR1eH5KDDdvr_qIPsIDvOPkL0agLKP/view",
   },
-    {
+  {
     name: "Postman API Fundamentals",
     issuer: "Postman Academy",
     description: "Gained hands-on skills in API design, testing, and automation.",
     image: "/images/certificates/Postman.jpg",
     link: "https://www.linkedin.com/posts/maneka-piyumawali_postman-api-apitesting-activity-7383140177587671040--Kzz",
   },
- 
+
   {
     name: "Machine Learning",
     issuer: "Cambridge International Qualifications (UK)",
@@ -92,7 +92,7 @@ const Certification = () => {
     const container = thumbsRef.current;
     if (!container) return;
 
-    // Only run smooth scroll after first click interaction (to prevent layout jump)
+
     if (!hasInteracted.current) {
       hasInteracted.current = true;
       return;
@@ -100,7 +100,7 @@ const Certification = () => {
 
     const child = container.children[activeIndex];
     if (child && typeof child.scrollIntoView === "function") {
-      // Delay slightly so layout is stable
+
       setTimeout(() => {
         child.scrollIntoView({
           behavior: "smooth",
@@ -121,7 +121,7 @@ const Certification = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      {/* Heading */}
+
       <motion.h2
         className="text-3xl md:text-4xl font-bold text-cyan-400 text-center mb-3"
         initial={{ opacity: 0, y: -20 }}
@@ -142,7 +142,7 @@ const Certification = () => {
         dedication to learning.
       </motion.p>
 
-      {/* Main Preview + Details */}
+
       <div className="max-w-[1100px] mx-auto">
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center bg-[#04102b] border border-white/6 rounded-3xl p-3 md:p-4"
@@ -150,9 +150,9 @@ const Certification = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
         >
-          {/* Certificate Preview */}
+
           <div className="relative flex items-center justify-center">
-            {/* 🧩 FIXED HEIGHT TO PREVENT SHIFT */}
+
             <div className="relative w-full md:w-[520px] h-64 md:h-[420px] rounded-2xl bg-[#0b0d1a] shadow-2xl overflow-hidden border border-white/6">
               <Image
                 src={active.image}
@@ -164,7 +164,7 @@ const Certification = () => {
               />
             </div>
 
-            {/* Arrows */}
+
             <button
               onClick={() => {
                 hasInteracted.current = true;
@@ -188,7 +188,7 @@ const Certification = () => {
             </button>
           </div>
 
-          {/* Certificate Details */}
+
           <motion.div
             className="px-2 md:px-6 py-6 rounded-2xl shadow-inner h-full flex flex-col justify-center"
             initial={{ opacity: 0, x: 40 }}
@@ -236,7 +236,7 @@ const Certification = () => {
           </motion.div>
         </motion.div>
 
-        {/* Thumbnails */}
+
         <motion.div
           className="mt-8"
           initial={{ opacity: 0, y: 40 }}
@@ -256,11 +256,10 @@ const Certification = () => {
                 }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className={`flex-shrink-0 w-20 h-14 md:w-28 md:h-20 rounded-md overflow-hidden border ${
-                  i === activeIndex
+                className={`flex-shrink-0 w-20 h-14 md:w-28 md:h-20 rounded-md overflow-hidden border ${i === activeIndex
                     ? "ring-2 ring-cyan-900 scale-105"
                     : "border-white/6"
-                } transition-all bg-[#0b0d1a]`}
+                  } transition-all bg-[#0b0d1a]`}
                 aria-label={`Show ${c.name}`}
               >
                 <div className="relative w-full h-full">

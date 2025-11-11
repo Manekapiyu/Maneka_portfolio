@@ -21,7 +21,6 @@ const slideInRight = {
 };
 
 const About = () => {
-  // Fixed color theme
   const themeColor = "text-cyan-400";
   const borderColor = "border-cyan-400/30";
   const glowColor = "shadow-cyan-400/30";
@@ -43,12 +42,9 @@ const About = () => {
         </p>
       </motion.div>
 
-      {/* --- Main Content --- */}
       <div className="w-[90%] sm:w-[80%] mx-auto grid md:grid-cols-2 gap-16 items-start">
-        {/* LEFT SIDE - Profile & Description */}
         <motion.div {...fadeInUp} viewport={{ once: true, amount: 0.3 }}>
           <div className="flex flex-col items-center text-center">
-            {/* Profile Image */}
             <motion.div
               {...fadeInUp}
               className={`relative w-56 h-56 rounded-full overflow-hidden border-4 ${borderColor} ${glowColor} hover:scale-105 transition-transform duration-500`}
@@ -64,7 +60,6 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b1a]/60 to-transparent"></div>
             </motion.div>
 
-            {/* Description */}
             <motion.h3
               {...fadeInUp}
               className={`text-3xl font-semibold ${themeColor} mt-6 mb-3`}
@@ -85,13 +80,11 @@ const About = () => {
           </div>
         </motion.div>
 
-        {/* RIGHT SIDE - Education & Training */}
         <motion.div
           {...slideInRight}
           viewport={{ once: true, amount: 0.3 }}
           className="space-y-6"
         >
-          {/* Education */}
           <motion.div
             {...fadeInUp}
             className={`bg-[#141428] p-6 rounded-2xl border ${borderColor} ${glowColor} hover:shadow-xl hover:scale-[1.03] transition-all duration-300`}
@@ -125,7 +118,7 @@ const About = () => {
             <p className="text-gray-300 text-sm mb-3 font-medium">Skills:</p>
 
             <div className="space-y-3">
-              {[ 
+              {[
                 { name: "OOP", pct: 85 },
                 { name: "DSA", pct: 78 },
                 { name: "Quality Assurance", pct: 72 },
@@ -151,7 +144,6 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* Experience */}
           <motion.div
             {...fadeInUp}
             className={`bg-[#141428] p-6 rounded-xl border ${borderColor} ${glowColor} hover:shadow-lg hover:scale-[1.02] transition-all duration-300`}

@@ -1,11 +1,3 @@
-// ✅ Fixed responsive layout for Project section
-// Improvements:
-// - Proper image aspect ratio handling
-// - Fixed height issues on mobile
-// - Added responsive padding
-// - Ensured grid behaves on all devices
-// - Better hover effects & smoothness
-
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
@@ -69,6 +61,16 @@ const projects = [
     technologies: ["React", "Tailwind"],
     githubLink: "https://github.com/Manekapiyu/ecommerce-website.git",
   },
+  {
+  title: "Task Management System",
+  description:
+    "A full-stack web application for managing organizational tasks with role-based access.",
+  image: "/images/projects/p5.png",
+  technologies: ["Spring Boot", "Angular", "MySQL"],
+  githubLink:
+    "https://github.com/Manekapiyu/Task_Management_System.git",
+},
+
 ];
 
 const Project = () => {

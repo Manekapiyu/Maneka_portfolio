@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React from "react";
 import Image from "next/image";
@@ -104,11 +104,10 @@ const Hero = () => {
               },
             }}
           >
-            Passionate about crafting innovative, scalable, and user-centered web solutions that turn ideas into impactful digital experiences.
-
+            Passionate about crafting innovative, scalable, and user-centered
+            web solutions that turn ideas into impactful digital experiences.
           </motion.p>
 
-          {/*Social Media Links*/}
           <div className="flex justify-center md:justify-start gap-4 mt-8 border-cyan-400/20">
             {socialLinks.map(({ Icon, link, label, color }, i) => (
               <motion.a

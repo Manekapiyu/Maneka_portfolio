@@ -1,4 +1,3 @@
-// components/ParticlesHero.tsx
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
@@ -29,7 +28,7 @@ export default function ParticlesHero() {
   const options: ISourceOptions = useMemo(
     () => ({
       background: {
-        color: { value: "transparent" }, // Transparent for overlay use
+        color: { value: "transparent" },
       },
       fullScreen: {
         enable: false,
