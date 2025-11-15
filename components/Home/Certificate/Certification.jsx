@@ -76,6 +76,14 @@ const certifications = [
     image: "/images/certificates/aws.png",
     link: "https://drive.google.com/file/d/1-EOOLDuQzREPm26aDnh0iWNzNvXUuQ5Z/view?usp=sharing",
   },
+  {
+  name: "Java Programming",
+  issuer: "Great Learning Academy",
+  description: "Completed hands-on training in Java fundamentals, OOP concepts and basic application development.",
+  image: "/images/certificates/java.jpg",
+  link: "https://drive.google.com/file/d/1RUl6lo3SvL192P9OxhGFcqvC1XhLMcmg/view?usp=sharing",
+},
+
 ];
 
 const Certification = () => {
