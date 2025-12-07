@@ -68,14 +68,6 @@ const projects = [
     technologies: ["Spring Boot", "Angular", "MySQL"],
     githubLink: "https://github.com/Manekapiyu/Task_Management_System.git",
   },
-  {
-    title: "Library Management System",
-    description:
-      "A full-stack web application designed to manage library operations such as book inventory, member registrations, borrowing/returning processes, and admin-level controls with role-based access.",
-    image: "/images/projects/p6.jpg",
-    technologies: ["Laravel", "MySQL"],
-    githubLink: "https://github.com/Manekapiyu/laravel-book-management.git",
-  },
 
   
 ];
