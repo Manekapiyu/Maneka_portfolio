@@ -40,8 +40,7 @@ const projects = [
       "Voice interaction platform to conduct interviews & auto-generate feedback.",
     image: "/images/projects/p2.png",
     technologies: ["Next.js", "React", "Vapi", "Supabase"],
-    githubLink:
-      "https://github.com/Manekapiyu/voice-ai-interview-platform.git",
+    githubLink: "https://github.com/Manekapiyu/voice-ai-interview-platform.git",
   },
   {
     title: "Full Stack Food Delivery App",
@@ -62,30 +61,31 @@ const projects = [
     githubLink: "https://github.com/Manekapiyu/ecommerce-website.git",
   },
   {
-  title: "Task Management System",
-  description:
-    "A full-stack web application for managing organizational tasks with role-based access.",
-  image: "/images/projects/p5.png",
-  technologies: ["Spring Boot", "Angular", "MySQL"],
-  githubLink:
-    "https://github.com/Manekapiyu/Task_Management_System.git",
-},
+    title: "Task Management System",
+    description:
+      "A full-stack web application for managing organizational tasks with role-based access.",
+    image: "/images/projects/p5.png",
+    technologies: ["Spring Boot", "Angular", "MySQL"],
+    githubLink: "https://github.com/Manekapiyu/Task_Management_System.git",
+  },
   {
-  title: "Library Management System",
-  description:
-    "A full-stack web application designed to manage library operations such as book inventory, member registrations, borrowing/returning processes, and admin-level controls with role-based access.",
-  image: "/images/projects/p6.jpg",
-  technologies: ["Laravel", "MySQL"],
-  githubLink:
-    "https://github.com/Manekapiyu/laravel-book-management.git"
-}
+    title: "Library Management System",
+    description:
+      "A full-stack web application designed to manage library operations such as book inventory, member registrations, borrowing/returning processes, and admin-level controls with role-based access.",
+    image: "/images/projects/p6.jpg",
+    technologies: ["Laravel", "MySQL"],
+    githubLink: "https://github.com/Manekapiyu/laravel-book-management.git",
+  },
 
-
+  
 ];
 
 const Project = () => {
   return (
-    <div id="projects" className="scroll-mt-24 px-4 sm:px-8 md:px-20 pt-16 pb-16">
+    <div
+      id="projects"
+      className="scroll-mt-24 px-4 sm:px-8 md:px-20 pt-16 pb-16"
+    >
       <h1 className="text-center text-3xl md:text-4xl xl:text-5xl font-bold text-white">
         Featured <span className="text-cyan-400 font-semibold">Projects</span>
         <div className="w-28 h-1 mx-auto mt-3 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full"></div>
@@ -98,7 +98,8 @@ const Project = () => {
         transition={{ duration: 0.5, delay: 0.2 }}
         viewport={{ once: true }}
       >
-        Here are some of my recent projects. Click to view the code or live demo.
+        Here are some of my recent projects. Click to view the code or live
+        demo.
       </motion.p>
 
       <motion.div
@@ -136,8 +137,12 @@ const Project = () => {
                 ))}
               </div>
 
-              <h3 className="text-xl font-bold text-cyan-400 mb-2">{project.title}</h3>
-              <p className="text-gray-300 text-sm mb-4">{project.description}</p>
+              <h3 className="text-xl font-bold text-cyan-400 mb-2">
+                {project.title}
+              </h3>
+              <p className="text-gray-300 text-sm mb-4">
+                {project.description}
+              </p>
 
               <div className="flex gap-3 mt-auto">
                 {project.githubLink && (
