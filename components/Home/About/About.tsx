@@ -27,22 +27,26 @@ const About = () => {
 
   return (
     <div id="about" className="scroll-mt-24 pt-16 pb-16">
+      {/* Title Section */}
       <motion.div
         {...fadeInDown}
         viewport={{ once: true, amount: 0.3 }}
         className="text-center mb-14"
       >
         <h1 className="text-center text-2xl md:text-4xl xl:text-5xl font-bold text-white mb-2">
-          About<span className="text-cyan-400 font-semibold"> Me</span>
+          About <span className="text-cyan-400 font-semibold">Me</span>
         </h1>
 
-        <div className="w-28 h-1 mx-auto mt-2  mb-2 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full"></div>
+        <div className="w-28 h-1 mx-auto mt-2 mb-2 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full"></div>
+
         <p className="text-gray-400 text-sm md:text-base">
           Calm creativity meets thoughtful technology.
         </p>
       </motion.div>
 
+      {/* Main Content */}
       <div className="w-[90%] sm:w-[80%] mx-auto grid md:grid-cols-2 gap-16 items-start">
+        {/* Left Section */}
         <motion.div {...fadeInUp} viewport={{ once: true, amount: 0.3 }}>
           <div className="flex flex-col items-center text-center">
             <motion.div
@@ -51,7 +55,7 @@ const About = () => {
             >
               <Image
                 src="/images/profile.jpg"
-                alt="Profile"
+                alt="Profile Image"
                 width={300}
                 height={300}
                 className="object-cover w-full h-full"
@@ -68,23 +72,25 @@ const About = () => {
             </motion.h3>
 
             <motion.p className="text-[16px] text-gray-300 leading-relaxed mb-8 mt-6 text-justify">
-              I’m a passionate developer who loves turning creative ideas into
-              meaningful digital experiences. I enjoy combining design, logic,
-              and clean code to craft web applications that are both{" "}
+              I&apos;m a passionate developer who loves turning creative ideas
+              into meaningful digital experiences. I enjoy combining design,
+              logic, and clean code to build web applications that are{" "}
               <span className="font-medium text-white">
                 modern, efficient, and user-focused
               </span>
-              . Every project I build is driven by curiosity, creativity, and a
+              . Every project I create is driven by curiosity, creativity, and a
               desire to make technology more impactful and accessible.
             </motion.p>
           </div>
         </motion.div>
 
+        {/* Right Section */}
         <motion.div
           {...slideInRight}
           viewport={{ once: true, amount: 0.3 }}
           className="space-y-6"
         >
+          {/* Academic Background */}
           <motion.div
             {...fadeInUp}
             className={`bg-[#141428] p-6 rounded-2xl border ${borderColor} ${glowColor} hover:shadow-xl hover:scale-[1.03] transition-all duration-300`}
@@ -117,8 +123,9 @@ const About = () => {
 
             <p className="text-gray-300 text-sm mb-3 font-medium">Skills:</p>
 
+            {/* Skills Progress Bars */}
             <div className="space-y-3">
-              {[
+              {[ 
                 { name: "OOP", pct: 85 },
                 { name: "DSA", pct: 78 },
                 { name: "Quality Assurance", pct: 72 },
@@ -144,6 +151,7 @@ const About = () => {
             </div>
           </motion.div>
 
+          {/* Work Experience */}
           <motion.div
             {...fadeInUp}
             className={`bg-[#141428] p-6 rounded-xl border ${borderColor} ${glowColor} hover:shadow-lg hover:scale-[1.02] transition-all duration-300`}
@@ -154,16 +162,20 @@ const About = () => {
                 Work Experience
               </h3>
             </div>
+
             <p className="text-sm text-gray-400">
               <span className="font-medium text-white">Banking Trainee</span>
             </p>
+
             <p className="text-gray-400 text-sm mb-3">
-              Regional Development Bank – Minuwangoda Branch{" "}
+              Regional Development Bank &ndash; Minuwangoda Branch{" "}
               <span className="italic">2022 - 2023</span>
             </p>
+
             <p className="text-gray-400 text-sm">
               Developed teamwork, adaptability, communication, and data
-              management skills while assisting with banking processes.
+              management skills while assisting with banking
+              processes.
             </p>
           </motion.div>
         </motion.div>

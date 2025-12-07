@@ -71,7 +71,7 @@ const projects = [
   {
     title: "Library Management System",
     description:
-      "A full-stack web application designed to manage library operations such as book inventory, member registrations, borrowing/returning processes, and admin-level controls with role-based access.",
+      "A web application managing library books and borrow/return operations.",
     image: "/images/projects/p6.jpg",
     technologies: ["Laravel", "MySQL"],
     githubLink: "https://github.com/Manekapiyu/laravel-book-management.git",
