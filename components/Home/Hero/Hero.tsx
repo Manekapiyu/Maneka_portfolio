@@ -144,7 +144,7 @@ const Hero = () => {
           <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-6">
             <motion.button
               onClick={() => {
-                const section = document.querySelector("#projects");
+                const section = document.querySelector("#contact");
                 section?.scrollIntoView({ behavior: "smooth" });
               }}
               whileHover={{ scale: 1.05 }}
@@ -158,7 +158,7 @@ const Hero = () => {
 
             <motion.button
               onClick={() => {
-                const section = document.querySelector("#contact");
+                const section = document.querySelector("#projects");
                 section?.scrollIntoView({ behavior: "smooth" });
               }}
               whileHover={{ scale: 1.05 }}
