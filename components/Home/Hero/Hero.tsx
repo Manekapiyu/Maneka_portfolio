@@ -12,7 +12,7 @@ const Hero = () => {
   const socialLinks = [
     {
       Icon: FaLinkedinIn,
-      link: "https://www.linkedin.com/in/maneka piyumawali",
+      link: "https://www.linkedin.com/in/maneka-piyumawali/",
       label: "LinkedIn",
       color: "#0A66C2",
     },
