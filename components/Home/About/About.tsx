@@ -68,7 +68,7 @@ const About = () => {
               {...fadeInUp}
               className={`text-3xl font-semibold ${themeColor} mt-6 mb-3`}
             >
-              &quot;Hi, I&apos;m Maneka — an Aspiring Full-Stack Developer&quot;
+              Hi, I&apos;m Maneka &mdash; an Aspiring Full-Stack Developer
             </motion.h3>
 
             <motion.p className="text-[16px] text-gray-300 leading-relaxed mb-8 mt-6 text-justify">
@@ -123,9 +123,8 @@ const About = () => {
 
             <p className="text-gray-300 text-sm mb-3 font-medium">Skills:</p>
 
-            {/* Skills Progress Bars */}
             <div className="space-y-3">
-              {[ 
+              {[
                 { name: "OOP", pct: 85 },
                 { name: "DSA", pct: 78 },
                 { name: "Quality Assurance", pct: 72 },
@@ -174,8 +173,7 @@ const About = () => {
 
             <p className="text-gray-400 text-sm">
               Developed teamwork, adaptability, communication, and data
-              management skills while assisting with banking
-              processes.
+              management skills while assisting with banking processes.
             </p>
           </motion.div>
         </motion.div>
