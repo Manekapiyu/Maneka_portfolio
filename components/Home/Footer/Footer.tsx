@@ -2,7 +2,9 @@
 
 import React from "react";
 import Link from "next/link";
-import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+
 
 const Footer = () => {
   return (

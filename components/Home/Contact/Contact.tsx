@@ -50,7 +50,7 @@ export default function Contact() {
         body: JSON.stringify(formData),
       });
 
-      if (!response.ok) throw new Error("Failed to send message");
+      if (!response.ok) throw new Error("Failed");
 
       setStatus("success");
       setFormData({ name: "", email: "", mobile: "", message: "" });
@@ -71,6 +71,7 @@ export default function Contact() {
   return (
     <div id="contact" className="scroll-mt-20 pt-16 pb-16 text-white">
       <div className="w-[90%] sm:w-[80%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+        {/* LEFT SIDE */}
         <motion.div
           className="space-y-6"
           initial="initial"
@@ -89,6 +90,7 @@ export default function Contact() {
           </motion.div>
 
           <motion.div className="space-y-6 mt-5" {...fadeIn}>
+            {/* Mail */}
             <motion.a
               href="mailto:manekapiyumawali2099@gmail.com"
               target="_blank"
@@ -106,6 +108,7 @@ export default function Contact() {
               </div>
             </motion.a>
 
+            {/* Phone */}
             <motion.a
               href="tel:0767859511"
               className="flex items-center gap-4 bg-[#0b1221] border border-cyan-400 hover:bg-blue-950 hover:text-black rounded-2xl p-5 cursor-pointer transition-all duration-300"
@@ -119,6 +122,7 @@ export default function Contact() {
               </div>
             </motion.a>
 
+            {/* Location */}
             <motion.a
               href="https://www.google.com/maps/place/Minuwangoda,+Sri+Lanka"
               target="_blank"
@@ -139,8 +143,9 @@ export default function Contact() {
           </motion.div>
         </motion.div>
 
+        {/* RIGHT SIDE FORM */}
         <motion.div
-          className="bg-[#0c0c29] dark:bg-dark/50 p-6 rounded-lg shadow-md mt-8"
+          className="bg-[#0c0c29] p-6 rounded-lg shadow-md mt-8"
           {...slideInRight}
           viewport={{ once: true, amount: 0.3 }}
         >
